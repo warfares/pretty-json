@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>sample</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quicksand" />
+    <link rel="stylesheet" type="text/css" href="/css/pretty-json.css" />
+
+    <!-- lib -->
+    <script type="text/javascript" src="/libs/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="/libs/underscore-min.js" ></script>
+    <script type="text/javascript" src="/libs/backbone-min.js" ></script>
+
+    <!-- src dev 
+    <script type="text/javascript" src="/pretty-json-debug.js" ></script>
+    -->
+    <!-- src build -->
+    <script type="text/javascript" src="/build/pretty-json-min.js" ></script>
+</head>
+
+<body>
+<script>
+    $(document).ready(function() {
+        // TODO: made a more interesting demo for this...!! an input JSON. (anything)
+        var data = {
+            name:'Rodolfo',
+            age:34,
+            birthday:new Date ('10-10-2012'),
+            child:[{name:'Franco', age:1}, {name:'??', age:0}],
+            wife:{name:'Cecilia', age:28}
+        }
+
+        var node = new PrettyJSON.view.Node({ 
+            el:$('#element'), 
+            data:data, 
+            level:1
+        });
+    });
+</script>
+
+<span id="element"></span>
+</html>
