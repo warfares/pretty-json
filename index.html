@@ -14,27 +14,69 @@
     -->
     <!-- src build -->
     <script type="text/javascript" src="/build/pretty-json-min.js" ></script>
+
+    <!-- just css for this page example -->
+    <style type="text/css">
+        body{
+            width:700px;
+            border-style: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea{
+            width:600px;
+            padding:4px 7px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            background:#fff;
+            color:#333;
+            margin-bottom:7px;
+        }
+    </style>
 </head>
 
 <body>
 <script>
     $(document).ready(function() {
-        // TODO: made a more interesting demo for this...!! an input JSON. (anything)
-        var data = {
-            name:'Rodolfo',
-            age:34,
-            birthday:new Date ('10-10-2012'),
-            child:[{name:'Franco', age:1}, {name:'??', age:0}],
-            wife:{name:'Cecilia', age:28}
-        }
 
-        var node = new PrettyJSON.view.Node({ 
-            el:$('#element'), 
-            data:data, 
-            level:1
+        var el = {
+            btnAction: $('#action'),
+            btnClear: $('#clear'),
+            input: $('#input'),
+            result: $('#result')
+        };
+
+        el.btnAction.on('click', function(){
+            var json = el.input.val();
+            
+            var o;
+            try{ o = JSON.parse(json); }
+            catch(e){ 
+                alert('not valid JSON');
+                return;
+            }
+
+            var node = new PrettyJSON.view.Node({ 
+                el:el.result, 
+                data:o, 
+                level:1
+            });
+        });
+
+        el.btnClear.on('click', function(){
+            el.input.val('');
+            el.result.html('');
         });
     });
 </script>
 
-<span id="element"></span>
+<textarea id="input" rows="12"></textarea>
+<br/>
+<button id="action">go</button>
+<button id="clear">clear</button>
+<br/>
+<br/>
+<span id="result"></span>
+</body>
 </html>
