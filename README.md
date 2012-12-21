@@ -23,9 +23,6 @@ var node = new PrettyJSON.view.Node({
   data:obj,
   level:1
 });
-
-.....
-.....
 </pre>
 
 * Note : only tested in Chrome & FireFox.
