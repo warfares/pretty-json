@@ -12,10 +12,10 @@ Usage
 
 //obj to render.
 var obj = {
-  name:'john doe',
+  name:'John Doe',
   age: 20,
-  children:[{name:'jack', age:5}, {name:'jan', age:8}],
-  wife:{name:'ann', age:28 }
+  children:[{name:'Jack', age:5}, {name:'Ann', age:8}],
+  wife:{name:'Jane Doe', age:28 }
 }
 
 var node = new PrettyJSON.view.Node({
