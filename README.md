@@ -24,4 +24,12 @@ var node = new PrettyJSON.view.Node({
 });
 </pre>
 
+
+Methods
+==
+<b>expandAll</b>: Recursive open & render all nodes. (lazy render: a node will render only when is expanded)
+<br/>
+<b>collapseAll</b>: Close (Hide) all nodes.
+
+* Note: "node" is an Obj or an Array.
 * Note : only tested in Chrome & FireFox.
