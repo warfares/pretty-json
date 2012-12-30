@@ -44,9 +44,17 @@
             result: $('#result')
         };
 
+        var demo = {
+            name:'John Doe',
+            age: 20,
+            children:[{name:'Jack', age:5}, {name:'Ann', age:8}],
+            wife:{name:'Jane Doe', age:28 }
+        };
+
+        el.input.val(JSON.stringify(demo,null,4));
+
         el.btnAction.on('click', function(){
             var json = el.input.val();
-
             var o;
             try{ o = JSON.parse(json); }
             catch(e){ 
