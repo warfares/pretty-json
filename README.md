@@ -1,13 +1,19 @@
+PRETTY JSON 
+== 
+
 Simple library to render/format a JS obj to an HTML view.
 
+Live Demo 
+--
+This is an [live demo](http://warfares.github.com/pretty-json/)
 
 Dependecies
-== 
+--
 * Backbone (just code structure) / Underscore 
 * JQuery (DOM manipulation)
 
 Usage
-==
+--
 <pre>
 
 //obj to render.
@@ -26,7 +32,7 @@ var node = new PrettyJSON.view.Node({
 
 
 Methods
-==
+--
 <b>expandAll</b>: Recursive open & render all nodes. (lazy render: a node will render only when is expanded)
 <br/>
 <b>collapseAll</b>: Close (Hide) all nodes.
