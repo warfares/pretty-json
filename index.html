@@ -9,12 +9,12 @@
     <script type="text/javascript" src="/libs/underscore-min.js" ></script>
     <script type="text/javascript" src="/libs/backbone-min.js" ></script>
 
-    <!-- src dev 
+    <!-- src dev -->
     <script type="text/javascript" src="/pretty-json-debug.js" ></script>
-    -->
-    <!-- src build -->
+    
+    <!-- src build 
     <script type="text/javascript" src="/build/pretty-json-min.js" ></script>
-
+-->
     <!-- just css for this page example -->
     <style type="text/css">
         body{
@@ -59,8 +59,7 @@
 
             var node = new PrettyJSON.view.Node({ 
                 el:el.result, 
-                data:o, 
-                level:1
+                data:o
             });
         });
 

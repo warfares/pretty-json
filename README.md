@@ -20,8 +20,7 @@ var obj = {
 
 var node = new PrettyJSON.view.Node({
   el:$('#elem'),
-  data:obj,
-  level:1
+  data:obj
 });
 </pre>
 
