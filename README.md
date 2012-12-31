@@ -33,9 +33,21 @@ var node = new PrettyJSON.view.Node({
 
 Methods
 --
+Node
+<br/>
 <b>expandAll</b>: Recursive open & render all nodes. (lazy render: a node will render only when is expanded)
 <br/>
 <b>collapseAll</b>: Close (Hide) all nodes.
+
+Events
+--
+Node
+<br/>
+<b>collaṕse</b>: trigger when a node is show or hide. (return event) 
+<br/>
+<b>mouseover</b>: trigger when mouse over a node. (return node path)
+<br/>
+<b>mouseout</b>: trigger when mouse out the node
 
 * Note: "node" is an Obj or an Array.
 * Note : only tested in Chrome & FireFox.
