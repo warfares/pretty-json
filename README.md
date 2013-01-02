@@ -43,9 +43,9 @@ Events
 --
 Node
 <br/>
-<b>collaṕse</b>: trigger when a node is show or hide. (return event) 
+<b>collaṕse</b>: trigger when a node is show or hide. (parm. event) 
 <br/>
-<b>mouseover</b>: trigger when mouse over a node. (return node path)
+<b>mouseover</b>: trigger when mouse over a node. (parm. node path)
 <br/>
 <b>mouseout</b>: trigger when mouse out the node
 
