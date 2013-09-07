@@ -6,7 +6,8 @@
 * @version 0.1
 *
 */
-PrettyJSON.view.Node = Backbone.View.extend({
+var Backbone = require('backbone');
+exports = module.exports = Node = new Backbone.View.extend({
     tagName:'span',
     data:null,
     level:1,

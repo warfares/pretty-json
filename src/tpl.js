@@ -6,7 +6,7 @@
 * @version 0.1
 *
 **/
-PrettyJSON.tpl.Node = '' +
+var Node = '' +
 '<span class="node-container">' +
     //top.
     '<span class="node-top node-bracket" />' +
@@ -18,7 +18,12 @@ PrettyJSON.tpl.Node = '' +
     '<span class="node-down node-bracket" />' +
 '</span>';
 
-PrettyJSON.tpl.Leaf = '' +
+var Leaf = '' +
 '<span class="leaf-container">' +
     '<span class="<%= type %>"> <%=data%></span><span><%= coma %></span>' +
 '</span>';
+
+exports = module.exports = tpl ={
+  "Node" : Node,
+  "Leaf" : Leaf
+}
