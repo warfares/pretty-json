@@ -10,8 +10,11 @@ var PrettyJSON = function(cfg){
       "appPort" : 8082,
       "url" : "http://localhost:8082/index.html",
       "static" : __dirname,
-      "parseAndDie" : true,
+      "parseAndDie" : false,
       "startServer" : true,
+      "data" : {
+        "PrettyJSON" : "now as well in node.js"
+      },
       "cb" : function(data, err){
         self.cfg.result = data;
         console.log("result from cfg", JSON.stringify(self.cfg.result));
@@ -37,18 +40,17 @@ PrettyJSON.prototype.createExpressServer = function(cfg){
   app.use(express.static(cfg.static));
   return app;
 };
-//FIXME: right now it is not possible to parse 2 times the same url 
-// seems to be a prob of broxser since it fails to visit the 2 time
-// could be that the server is down and did not start up
+//FIXME: right now it is possible to parse x times the same url or others 
+// make sure you set "parseAndDie" : false,
 PrettyJSON.prototype.parse = function(prettyJson){
   //console.log("doIt before")
   var self = prettyJson;
   browser = new Browser();
   browser.visit(self.cfg.url, function () {
 //      console.log("doIt inernal")
-    browser.fill("textarea" , "{\"PrettyJSON\" : \"now as well in node.js\"}"||self.cfg.data);
+    browser.fill("textarea" , self.cfg.data);
     browser.pressButton("go", function() {
-      if(self.cfg.parseAndDie){
+      if(self.cfg.parseAndDie && self.cfg.startServer){
         console.log("shutting down server")
         self.server.close();
       }
