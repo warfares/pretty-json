@@ -11,6 +11,7 @@ var PrettyJSON = function(cfg){
       "url" : "http://localhost:8082/index.html",
       "static" : __dirname,
       "parseAndDie" : true,
+      "startServer" : true,
       "cb" : function(data, err){
         self.cfg.result = data;
         console.log("result from cfg", JSON.stringify(self.cfg.result));
@@ -21,6 +22,9 @@ var PrettyJSON = function(cfg){
     self.cfg = cfg;
   }
   self.app = self.createExpressServer(self.cfg);
+  if(self.cfg.startServer){
+    self.server = this.app.listen(self.cfg.appPort);
+  }
 };
 
 function createPrettyJSON(cfg){
@@ -37,29 +41,19 @@ PrettyJSON.prototype.createExpressServer = function(cfg){
 // seems to be a prob of broxser since it fails to visit the 2 time
 // could be that the server is down and did not start up
 PrettyJSON.prototype.parse = function(prettyJson){
-  console.log("doIt before")
-  var doIt = function() {
-    var self = prettyJson;
-    browser = new Browser();
-    console.log("self.cfg.url", self.cfg.url);
-    browser.visit(self.cfg.url, function () {
+  //console.log("doIt before")
+  var self = prettyJson;
+  browser = new Browser();
+  browser.visit(self.cfg.url, function () {
 //      console.log("doIt inernal")
-      browser.fill("textarea" , "{\"PrettyJSON\" : \"now as well in node.js\"}"||self.cfg.data);
-      browser.pressButton("go", function() {
-        if(self.cfg.parseAndDie){
-          console.log("shutting down server")
-          self.server.close();
-        }
-        self.cfg.cb(browser.html());
-      });
-    });
-  };
+    browser.fill("textarea" , "{\"PrettyJSON\" : \"now as well in node.js\"}"||self.cfg.data);
+    browser.pressButton("go", function() {
+      if(self.cfg.parseAndDie){
+        console.log("shutting down server")
+        self.server.close();
+      }
+      self.cfg.cb(browser.html());
+  });
 //  console.log("doIt after")
-  if(!prettyJson.server || prettyJson.cfg.parseAndDie){
-//    console.log("listen")
-    prettyJson.server = this.app.listen(prettyJson.cfg.appPort, doIt());
-  }else{
-//    console.log("xxx");
-    doIt();
-  }
+  });
 };
