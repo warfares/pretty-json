@@ -1,2 +1,3 @@
 // deps
-require('./index')();
+var prettyJson = require('./index')();
+prettyJson.parse(prettyJson)

@@ -1,43 +1,65 @@
 var express = require('express');
+var Browser = require("zombie");
 
 exports = module.exports = createPrettyJSON;
 
 var PrettyJSON = function(cfg){
-  if(!cfg){
-    cfg = {};
-  }
   var self = this;
-  self.cfg = cfg;
+  if(!cfg){
+    self.cfg = {
+      "appPort" : 8082,
+      "url" : "http://localhost:8082/index.html",
+      "static" : __dirname,
+      "parseAndDie" : true,
+      "cb" : function(data, err){
+        self.cfg.result = data;
+        console.log("result from cfg", JSON.stringify(self.cfg.result));
+      }
+    }
+  }else{
+    //FIXME ENHANCEMENT validation of cfg
+    self.cfg = cfg;
+  }
   self.app = self.createExpressServer(self.cfg);
-  
-  self.parse(self, function(data, err){
-    console.log("result", JSON.stringify(data));
-  });
 };
 
 function createPrettyJSON(cfg){
   return new PrettyJSON(cfg);
 };
+
 PrettyJSON.prototype.createExpressServer = function(cfg){
   var app = express();
   app.use(express.logger());
-  app.use(express.static(cfg.static || __dirname ));
+  app.use(express.static(cfg.static));
   return app;
 };
-
-PrettyJSON.prototype.parse= function(prettyJson, cb){
-  prettyJson.server = this.app.listen(8082||prettyJson.cfg.appPort, function() {
+//FIXME: right now it is not possible to parse 2 times the same url 
+// seems to be a prob of broxser since it fails to visit the 2 time
+// could be that the server is down and did not start up
+PrettyJSON.prototype.parse = function(prettyJson){
+  console.log("doIt before")
+  var doIt = function() {
     var self = prettyJson;
-    self.cb = cb;//FIXME test whether function
-    var Browser = require("zombie");
     browser = new Browser();
-    browser.visit("http://localhost:8082/index.html"||self.cfg.url, function () {
+    console.log("self.cfg.url", self.cfg.url);
+    browser.visit(self.cfg.url, function () {
+//      console.log("doIt inernal")
       browser.fill("textarea" , "{\"PrettyJSON\" : \"now as well in node.js\"}"||self.cfg.data);
       browser.pressButton("go", function() {
-        self.cfg.result = browser.html();
-        self.server.close();
-        self.cb(self.cfg.result);
+        if(self.cfg.parseAndDie){
+          console.log("shutting down server")
+          self.server.close();
+        }
+        self.cfg.cb(browser.html());
       });
     });
-  });
+  };
+//  console.log("doIt after")
+  if(!prettyJson.server || prettyJson.cfg.parseAndDie){
+//    console.log("listen")
+    prettyJson.server = this.app.listen(prettyJson.cfg.appPort, doIt());
+  }else{
+//    console.log("xxx");
+    doIt();
+  }
 };
