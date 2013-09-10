@@ -1,3 +1,8 @@
+//namespaces def.
+var PrettyJSON = {
+    view:{},
+    tpl:{}
+};
 
 /**
 * @class PrettyJSON.util
@@ -7,7 +12,7 @@
 * @version 0.1
 *
 **/
-exports = module.exports = util = {
+PrettyJSON.util = {
     isObject: function(v){
         return Object.prototype.toString.call(v) === '[object Object]';
     },

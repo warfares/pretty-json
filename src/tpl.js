@@ -6,7 +6,7 @@
 * @version 0.1
 *
 **/
-var Node = '' +
+PrettyJSON.tpl.Node = '' +
 '<span class="node-container">' +
     //top.
     '<span class="node-top node-bracket" />' +
@@ -18,12 +18,7 @@ var Node = '' +
     '<span class="node-down node-bracket" />' +
 '</span>';
 
-var Leaf = '' +
+PrettyJSON.tpl.Leaf = '' +
 '<span class="leaf-container">' +
     '<span class="<%= type %>"> <%=data%></span><span><%= coma %></span>' +
 '</span>';
-
-exports = module.exports = tpl ={
-  "Node" : Node,
-  "Leaf" : Leaf
-}

@@ -6,9 +6,7 @@
 * @version 0.1
 *
 */
-var Backbone = require('backbone');
-exports = module.exports = Leaf = function(){
-  return new Backbone.View.extend({
+PrettyJSON.view.Leaf = Backbone.View.extend({
     tagName:'span',
     data:null,
     level:0,
@@ -85,4 +83,3 @@ exports = module.exports = Leaf = function(){
         },this);
     }
 });
-}
