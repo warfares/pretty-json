@@ -8,6 +8,9 @@
     "json to html"
   ],
   "main": "index.js",
+  "scripts": {
+    "start": "node test.js"
+  },
   "maintainers": [
     {
       "name": "Rodolfo Barriga S.",
@@ -34,6 +37,9 @@
   },
   "dependencies": {
     "express": "~3.3.5",
-    "zombie" : "2.0.*"
+    "zombie" : "2.0.0-alpha20"
+  },
+  "devDependencies": {
+    "jsdoc": "git://github.com/jsdoc3/jsdoc.git"
   }
 }
