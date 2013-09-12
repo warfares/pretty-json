@@ -1,0 +1,45 @@
+{
+  "name" : "pretty-json-html",
+  "version" : "0.0.1",
+  "author" : "Rodolfo Barriga S. <rodolfo.barriga@gmail.com>",
+  "keywords": [
+    "json",
+    "pretty-json",
+    "json to html"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "maintainers": [
+    {
+      "name": "Rodolfo Barriga S.",
+      "email": "rodolfo.barriga@gmail.com",
+      "web": "http://rbarriga.blogspot.com.es/"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Rodolfo Barriga S.",
+      "email": "rodolfo.barriga@gmail.com",
+      "web": "http://rbarriga.blogspot.com.es/"
+    },
+    {
+      "name": "Thorsten Scherler",
+      "email": "thorsten@codebusters.es",
+      "web": "http://www.codebusters.es/company"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/warfares/pretty-json"
+  },
+  "dependencies": {
+    "express": "~3.3.5",
+    "zombie" : "2.0.0-alpha20"
+  },
+  "devDependencies": {
+    "jsdoc": "git://github.com/jsdoc3/jsdoc.git"
+  }
+}
