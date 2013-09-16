@@ -31,24 +31,39 @@ var node = new PrettyJSON.view.Node({
 });
 </pre>
 
+Properties.
+--
+<b>el</b>: DOM elem to append the JSON-HTML view.
+<br/>
+<b>data</b>: the JSON data.
+<br/>
+<b>dateFormat</b>: <em>(optional)</em> format date, ex: "DD/MM/YYYY HH24:MI:SS". 
+  - YYYY : year
+  - YY : year
+  - MM : month
+  - DD : day
+  - HH24 : hour 24-format
+  - HH : hours
+  - MI : minutes
+  - SS : seconds
 
 Methods
 --
 Node
 <br/>
-<b>expandAll</b>: Recursive open & render all nodes. (lazy render: a node will render only when is expanded)
+<b>expandAll</b>: recursive open & render all nodes. (lazy render: the node will render only if it's expanded)
 <br/>
-<b>collapseAll</b>: Close (Hide) all nodes.
+<b>collapseAll</b>: close (Hide) all nodes.
 
 Events
 --
 Node
 <br/>
-<b>collaṕse</b>: trigger when a node is show or hide. (parm. event) 
+<b>collapse</b>: trigger when a node is show or hide. (event)
 <br/>
-<b>mouseover</b>: trigger when mouse over a node. (parm. node path)
+<b>mouseover</b>: trigger when mouse over a node. (path)
 <br/>
-<b>mouseout</b>: trigger when mouse out the node
+<b>mouseout</b>: trigger when mouse out the node (event)
 
 * Note: "node" is an Obj or an Array.
 * Note : only tested in Chrome & FireFox.
