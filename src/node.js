@@ -27,6 +27,7 @@ PrettyJSON.view.Node = Backbone.View.extend({
         this.path = this.options.path;
         this.isLast = _.isUndefined(this.options.isLast) ?
             this.isLast : this.options.isLast;
+        this.dateFormat = this.options.dateFormat;
 
         var m = this.getMeta();
         this.type = m.type;
@@ -87,6 +88,7 @@ PrettyJSON.view.Node = Backbone.View.extend({
                 parent: this,
                 path: path,
                 level: this.level + 1,
+                dateFormat: this.dateFormat,
                 isLast: isLast
             };
 
@@ -115,7 +117,6 @@ PrettyJSON.view.Node = Backbone.View.extend({
             this.els.ul.append(li);
 
             //references.
-            child.parentTd = left;
             child.parent = this;
             this.childs.push(child);
 
@@ -170,12 +171,10 @@ PrettyJSON.view.Node = Backbone.View.extend({
     },
     mouseover:function(e){
         e.stopPropagation();
-        this.togglePath(true);
         this.trigger("mouseover",e, this.path);
     },
     mouseout:function(e){
         e.stopPropagation();
-        this.togglePath(false);
         this.trigger("mouseout",e);
     },
     expandAll:function (){
@@ -197,22 +196,5 @@ PrettyJSON.view.Node = Backbone.View.extend({
 
         if(this.level != 1)
             this.hide();
-    },
-    togglePath:function(show){
-        this.getPathEls();
-        _.each(this.tds,function(td){
-            show ?
-                td.addClass('node-hgl-path'):
-                td.removeClass('node-hgl-path');
-        },this);
-    },
-    getPathEls:function(){
-        this.tds = [];
-        var view = this;
-        while (view){
-            var td = view.parentTd;
-            if(td) this.tds.push(td);
-            view = view.parent;
-        }
     }
 });

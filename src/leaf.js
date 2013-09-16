@@ -22,6 +22,7 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
         this.level = this.options.level;
         this.path = this.options.path;
         this.type = this.getType();
+        this.dateFormat = this.options.dateFormat;
         this.isLast = _.isUndefined(this.options.isLast) ? 
             this.isLast : this.options.isLast;
 
@@ -49,37 +50,22 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
     },
     render: function(){
         var state = this.getState();
+
+        if (state.type == "date" && this.dateFormat) {
+            state.data = PrettyJSON.util.dateFormat(this.data, this.dateFormat);
+        }
+
         this.tpl = _.template(PrettyJSON.tpl.Leaf, state);
         $(this.el).html(this.tpl);
         return this;
     },
     mouseover:function(e){
         e.stopPropagation();
-        this.toggleTdPath(true);
         var path = this.path + '&nbsp;:&nbsp;<span class="' + this.type +'"><b>' + this.data + '</b></span>';
         this.trigger("mouseover",e, path);
     },
     mouseout:function(e){
        e.stopPropagation();
-       this.toggleTdPath(false);
        this.trigger("mouseout",e);
-    },
-    getTds:function(){
-        this.tds = [];
-        var view = this;
-        while (view){
-            var td = view.parentTd;
-            if(td) 
-                this.tds.push(td);
-            view = view.parent;
-        }
-    },
-    toggleTdPath:function(show){
-        this.getTds();
-        _.each(this.tds,function(td){
-            show ?
-                td.addClass('node-hgl-path'):
-                td.removeClass('node-hgl-path');
-        },this);
     }
 });

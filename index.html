@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/libs/underscore-min.js" ></script>
     <script type="text/javascript" src="/libs/backbone-min.js" ></script>
 
-    <!-- src dev -->
+    <!-- src dev --> 
     <script type="text/javascript" src="/pretty-json-debug.js" ></script>
     
     <!-- src build 
@@ -58,8 +58,9 @@
             }
 
             var node = new PrettyJSON.view.Node({ 
-                el:el.result, 
-                data:o
+                el:el.result,
+                data: o,
+                dateFormat:"DD/MM/YYYY - HH24:MI:SS"
             });
         });
 

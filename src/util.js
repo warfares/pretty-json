@@ -31,17 +31,5 @@ PrettyJSON.util = {
         f = f.replace('MI', PrettyJSON.util.pad(date.getMinutes(), 2));
         f = f.replace('SS', PrettyJSON.util.pad(date.getSeconds(), 2));
         return f;
-    },
-    getDateStr:function(year, month, day){
-
-        var d = new Date();
-        if(year)
-            d.setFullYear(d.getFullYear() + year);
-        if(month)
-            d.setMonth(d.getMonth() + month);
-        if(day)
-            d.setDate(d.getDate() + day);
-
-        return PrettyJSON.util.dateFormat(d, 'YYYY-MM-DD');
     }
 }
