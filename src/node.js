@@ -45,7 +45,7 @@ PrettyJSON.view.Node = Backbone.View.extend({
     getMeta: function(){
         var val = {
             size: _.size(this.data),
-            type: _.isArray(this.data) ? 'array' : 'object',
+            type: _.isArray(this.data) ? 'array' : 'object'
         };
         return val;
     },
