@@ -10,8 +10,9 @@ This is an [live demo](http://warfares.github.com/pretty-json/)
 
 Dependecies
 --
-* Backbone (just code structure) / Underscore 
-* JQuery (DOM manipulation)
+* Backbone 1.1.2 (code structure) 
+* Underscore 1.6.0 
+* JQuery 1.11.1 (DOM manipulation)
 
 Usage
 --
