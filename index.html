@@ -5,11 +5,11 @@
     <link rel="stylesheet" type="text/css" href="/css/pretty-json.css" />
 
     <!-- lib -->
-    <script type="text/javascript" src="/libs/jquery-1.8.3.min.js" ></script>
+    <script type="text/javascript" src="/libs/jquery-1.11.1.min.js" ></script>
     <script type="text/javascript" src="/libs/underscore-min.js" ></script>
     <script type="text/javascript" src="/libs/backbone-min.js" ></script>
 
-    <!-- src dev
+    <!-- src dev 
     <script type="text/javascript" src="/pretty-json-debug.js" ></script>
     -->
     <!-- src build  -->
@@ -47,11 +47,20 @@
             result: $('#result')
         };
 
+        var demo = {
+            name:'John Doe',
+            age: 20,
+            children:[{name:'Jack', age:5}, {name:'Ann', age:8}],
+            wife:{name:'Jane Doe', age:28 }
+        };
+
+        el.input.val(JSON.stringify(demo,null,4));
+
         el.btnAction.on('click', function(){
             var json = el.input.val();
-            
-            var o;
-            try{ o = JSON.parse(json); }
+
+            var data;
+            try{ data = JSON.parse(json); }
             catch(e){ 
                 alert('not valid JSON');
                 return;
@@ -59,7 +68,7 @@
 
             var node = new PrettyJSON.view.Node({ 
                 el:el.result,
-                data: o,
+                data: data,
                 dateFormat:"DD/MM/YYYY - HH24:MI:SS"
             });
         });

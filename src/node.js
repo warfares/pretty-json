@@ -20,8 +20,8 @@ PrettyJSON.view.Node = Backbone.View.extend({
         'mouseover .node-container': 'mouseover',
         'mouseout .node-container': 'mouseout'
     },
-    initialize:function(){
-
+    initialize:function(opt) {
+	this.options = opt;
         this.data = this.options.data;
         this.level = this.options.level || this.level;
         this.path = this.options.path;
