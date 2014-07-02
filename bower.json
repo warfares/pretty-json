@@ -1,0 +1,25 @@
+{
+	"name": "pretty-json",
+	"version": "0.0.0",
+	"homepage": "https://github.com/warfares/pretty-json",
+	"authors": [
+		"warfares"
+	],
+	"description": "Simple library to render/format a JS obj to an HTML view.",
+	"main": "build/pretty-json-min.js",
+	"keywords": [
+		"json",
+		"pretty"
+	],
+	"license": "None",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"backbone": "~>1.1"
+	}
+}
