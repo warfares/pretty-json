@@ -36,6 +36,7 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
         if(_.isNumber(d)) m = 'number';
         else if(_.isBoolean(d)) m = 'boolean';
         else if(_.isDate(d)) m = 'date';
+        else if(_.isNull(d)) m = 'null'
         return m;
     },
     getState:function(){
@@ -49,11 +50,15 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
         };
         return state;
     },
-    render: function(){
+    render: function() {
         var state = this.getState();
 
-        if (state.type == "date" && this.dateFormat) {
+        if (state.type == 'date' && this.dateFormat) {
             state.data = PrettyJSON.util.dateFormat(this.data, this.dateFormat);
+        }
+
+        if (state.type == 'null') {
+            state.data = 'null';
         }
 
         this.tpl = _.template(PrettyJSON.tpl.Leaf, state);
