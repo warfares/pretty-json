@@ -61,8 +61,8 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
             state.data = 'null';
         }
 
-        this.tpl = _.template(PrettyJSON.tpl.Leaf, state);
-        $(this.el).html(this.tpl);
+        this.tpl = _.template(PrettyJSON.tpl.Leaf);
+        $(this.el).html(this.tpl(state));
         return this;
     },
     mouseover:function(e){
