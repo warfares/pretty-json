@@ -11,7 +11,7 @@ This is an [live demo](http://warfares.github.com/pretty-json/)
 Dependecies
 --
 * Backbone 1.1.2 (code structure) 
-* Underscore 1.6.0 
+* Underscore 1.7.0 
 * JQuery 1.11.1 (DOM manipulation)
 
 Usage
