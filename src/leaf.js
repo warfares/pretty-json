@@ -1,7 +1,7 @@
 /**
 * @class PrettyJSON.view.Leaf
 * @extends Backbone.View
-* 
+*
 * @author #rbarriga
 * @version 0.1
 *
@@ -24,14 +24,14 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
         this.path = this.options.path;
         this.type = this.getType();
         this.dateFormat = this.options.dateFormat;
-        this.isLast = _.isUndefined(this.options.isLast) ? 
+        this.isLast = _.isUndefined(this.options.isLast) ?
             this.isLast : this.options.isLast;
 
         this.render();
     },
     getType: function(){
         var m = 'string';
-        var d = this.data; 
+        var d = this.data;
 
         if(_.isNumber(d)) m = 'number';
         else if(_.isBoolean(d)) m = 'boolean';
