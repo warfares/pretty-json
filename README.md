@@ -2,6 +2,7 @@ PRETTY JSON
 == 
 
 Simple library to render/format a JS obj to an HTML view.
+[pretty-json-min.js] http://warfares.github.io/pretty-json/pretty-json-min.js
 
 Live Demo 
 --
