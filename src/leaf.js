@@ -60,7 +60,13 @@ PrettyJSON.view.Leaf = Backbone.View.extend({
         if (state.type == 'null') {
             state.data = 'null';
         }
-
+        
+        if (state.type == 'string' && state.data == '') {
+            state.data = '""';
+        } else {
+            state.data = '"'+state.data+'"';
+        }
+        
         this.tpl = _.template(PrettyJSON.tpl.Leaf);
         $(this.el).html(this.tpl(state));
         return this;
