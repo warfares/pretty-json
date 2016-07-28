@@ -20,5 +20,5 @@ PrettyJSON.tpl.Node = '' +
 
 PrettyJSON.tpl.Leaf = '' +
 '<span class="leaf-container">' +
-    '<span class="<%= type %>"> <%=data%></span><span><%= coma %></span>' +
+    '<span class="<%= type %>"> <%-data%></span><span><%= coma %></span>' +
 '</span>';
