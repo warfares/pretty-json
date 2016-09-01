@@ -21,12 +21,12 @@ PrettyJSON.view.Node = Backbone.View.extend({
         'mouseout .node-container': 'mouseout'
     },
     initialize:function(opt) {
-	this.options = opt;
+	    this.options = opt;
         this.data = this.options.data;
         this.level = this.options.level || this.level;
         this.path = this.options.path;
         this.isLast = _.isUndefined(this.options.isLast) ?
-            this.isLast : this.options.isLast;
+        this.isLast : this.options.isLast;
         this.dateFormat = this.options.dateFormat;
 
         var m = this.getMeta();
@@ -177,11 +177,14 @@ PrettyJSON.view.Node = Backbone.View.extend({
         e.stopPropagation();
         this.trigger("mouseout",e);
     },
-    expandAll:function (){
+    expandAll:function (depth, currentDepth){
+        if(!currentDepth) currentDepth = 0;
+        if(depth && depth <= currentDepth++) return;
+
         _.each(this.childs, function(child){
             if(child instanceof PrettyJSON.view.Node){
                 child.show();
-                child.expandAll();
+                child.expandAll(depth, currentDepth);
             }
         },this);
         this.show();

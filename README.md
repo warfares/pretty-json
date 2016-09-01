@@ -54,7 +54,7 @@ Methods
 --
 Node
 <br/>
-<b>expandAll</b>: recursive open & render all nodes. (lazy render: the node will render only if it's expanded)
+<b>expandAll(depth)</b>: recursive open & render all nodes. If an integer is passed in the function it will open only to that depth. (lazy render: the node will render only if it's expanded)
 <br/>
 <b>collapseAll</b>: close (Hide) all nodes.
 
