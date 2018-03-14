@@ -61,12 +61,12 @@
 
             var data;
             try{ data = JSON.parse(json); }
-            catch(e){ 
+            catch(e){
                 alert('not valid JSON');
                 return;
             }
 
-            var node = new PrettyJSON.view.Node({ 
+            var node = new PrettyJSON.view.Node({
                 el:el.result,
                 data: data,
                 dateFormat:"DD/MM/YYYY - HH24:MI:SS"
