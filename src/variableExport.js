@@ -1,1 +1,1 @@
-module.exports = PrettyJSON;
+export default PrettyJSON;

@@ -1,3 +1,3 @@
-const Backbone = require('backbone');
-const _ = require('underscore');
-const $ = require('jquery');
+import * as Backbone from 'backbone';
+import * as _ from 'underscore';
+import * as $ from 'jquery';
