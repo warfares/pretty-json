@@ -1,6 +1,6 @@
 {
   "name": "pretty-json-warfares",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple library to render/format a JS obj to an HTML view.",
   "main": "dist/index.js",
   "repository": {
