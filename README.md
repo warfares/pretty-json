@@ -7,7 +7,7 @@ Simple library to render/format a JS obj to an HTML view.
 
 Live Demo 
 --
-This is an [live demo](http://warfares.github.com/pretty-json/)
+This is an [live demo](http://warfares.github.io/pretty-json/)
 * ..you could get more valid json input from here (http://json.org/example.html)
 
 Dependecies
