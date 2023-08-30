@@ -10,6 +10,10 @@ Live Demo
 This is an [live demo](http://warfares.github.io/pretty-json/)
 * ..you could get more valid json input from here (http://json.org/example.html)
 
+## :film_strip: Video Tutorial 
+
+ [<img src="https://img.youtube.com/vi/Wmt0U634Weo/0.jpg" width="250">](https://youtu.be/Wmt0U634Weo)
+ 
 Dependecies
 --
 * Backbone 1.1.2 (code structure) 
