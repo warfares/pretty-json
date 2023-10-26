@@ -5,6 +5,13 @@ Simple library to render/format a JS obj to an HTML view.
 <br/>
 [pretty-json-min.js](http://warfares.github.io/pretty-json/pretty-json-min.js)
 
+:film_strip: Video Tour 
+ --
+
+If you'd prefer a more visual review of this package, please watch this video on Laravel Package Tutorial.
+ 
+[<img src="https://img.youtube.com/vi/Wmt0U634Weo/0.jpg" width="450">](https://youtu.be/Wmt0U634Weo)
+
 Live Demo 
 --
 This is an [live demo](http://warfares.github.io/pretty-json/)
